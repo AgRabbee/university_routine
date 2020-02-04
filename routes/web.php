@@ -33,3 +33,9 @@ Route::post('/profile/changePassword','HomeController@updatePass');
 Route::get('/student/profile','HomeController@viewStudentProfile');
 Route::post('/student/profile','HomeController@updateProfile');
 Route::post('/student/profile/changePassword','HomeController@updatePass');
+
+
+Route::get('/allUsers', 'UserController@allUsers');
+Route::post('/new/user/active', 'UserController@user_active');
+Route::post('/new/user/pause', 'UserController@user_pause');
+Route::post('/new/user/deny', 'UserController@user_deny');

@@ -29,7 +29,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/dashboard/allusers') }}" class="nav-link">
+                <a href="{{ url('/allUsers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Users</p>
                 </a>

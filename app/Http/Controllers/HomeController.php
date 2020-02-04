@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function viewProfile()
     {
-        return view('users.profile');
+        return view('users.profile'); //display the admin profile page
     }
 
     public function updateProfile(Request $request)
@@ -64,6 +64,7 @@ class HomeController extends Controller
 
     public function viewStudentProfile()
     {
-        return view('users.studentProfile');
+        return view('users.studentProfile'); //display the student profile page
     }
+
 }
