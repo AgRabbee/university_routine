@@ -26,32 +26,52 @@ Route::post('/signup','Auth\AuthController@signUp');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//admin profile preview and updates
-Route::get('/profile','HomeController@viewProfile');
-Route::post('/profile','HomeController@updateProfile');
-Route::post('/profile/changePassword','HomeController@updatePass');
 
-//student profile preview and updates
-Route::get('/student/profile','HomeController@viewStudentProfile');
-Route::post('/student/profile','HomeController@updateProfile');
-Route::post('/student/profile/changePassword','HomeController@updatePass');
+// route group for admin and teachers
+//---------------------------------------
+Route::group(['middleware'=>['auth','employee']],function(){
+    //admin profile preview and updates
+    Route::get('/profile','HomeController@viewProfile');
+    Route::post('/profile','HomeController@updateProfile');
+    Route::post('/profile/changePassword','HomeController@updatePass');
 
-// user preview and status updates
-Route::get('/allUsers', 'UserController@allUsers');
-Route::post('/new/user/active', 'UserController@user_active');
-Route::post('/new/user/pause', 'UserController@user_pause');
-Route::post('/new/user/deny', 'UserController@user_deny');
+    // user preview and status updates
+    Route::get('/allUsers', 'UserController@allUsers');
+    Route::post('/new/user/active', 'UserController@user_active');
+    Route::post('/new/user/pause', 'UserController@user_pause');
+    Route::post('/new/user/deny', 'UserController@user_deny');
 
-// subject preview and updates
-Route::get('/allSubjects','ClassController@allSubjects');
-Route::get('/addSubject','ClassController@addSubjectForm');
-Route::post('/addSubject','ClassController@addSubject');
-Route::get('/edit/subject/{id}','ClassController@editSubjectForm');
-Route::post('/edit/subject/{id}','ClassController@editSubject');
+    // subject preview and updates
+    Route::get('/allSubjects','ClassController@allSubjects');
+    Route::get('/addSubject','ClassController@addSubjectForm');
+    Route::post('/addSubject','ClassController@addSubject');
+    Route::get('/edit/subject/{id}','ClassController@editSubjectForm');
+    Route::post('/edit/subject/{id}','ClassController@editSubject');
 
-// class times preview and updates
-Route::get('/allClassTimes','ClassController@allClassTimes');
-Route::get('/addClassTime','ClassController@addClassTimeForm');
-Route::post('/addClassTime','ClassController@addClassTime');
-Route::get('/edit/classTime/{id}','ClassController@editclassTimeForm');
-Route::post('/edit/classTime/{id}','ClassController@editclassTime');
+    // class times preview and updates
+    Route::get('/allClassTimes','ClassController@allClassTimes');
+    Route::get('/addClassTime','ClassController@addClassTimeForm');
+    Route::post('/addClassTime','ClassController@addClassTime');
+    Route::get('/edit/classTime/{id}','ClassController@editclassTimeForm');
+    Route::post('/edit/classTime/{id}','ClassController@editclassTime');
+
+    // class routine preview and updates
+    Route::get('/allClass','ClassController@allClass');
+    Route::get('/addClass','ClassController@addClassForm');
+    Route::post('/addClass','ClassController@addClass');
+    Route::get('/edit/class/{id}','ClassController@editclassForm');
+    Route::post('/edit/class/{id}','ClassController@editclass');
+
+});
+
+
+// route group for students
+//---------------------------------------
+
+Route::group(['middleware'=>['auth','student']],function(){
+    //student profile preview and updates
+    Route::get('/student/profile','HomeController@viewStudentProfile');
+    Route::post('/student/profile','HomeController@updateProfile');
+    Route::post('/student/profile/changePassword','HomeController@updatePass');
+
+});

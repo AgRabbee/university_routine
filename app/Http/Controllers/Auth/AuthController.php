@@ -43,14 +43,16 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'user_role' => 'required|integer',
             'mobile' => 'required|regex:/\+?(88)?0?1[456789][0-9]{8}\b/',
             'profile_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
-
+        
         $user = new User;
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->password = bcrypt($request['password']);
+        $user->user_role = $request['user_role'];
         $user->mobile = $request['mobile'];
 
         //storing image into public\images folder

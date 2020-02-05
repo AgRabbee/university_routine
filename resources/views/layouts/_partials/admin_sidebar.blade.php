@@ -84,6 +84,30 @@
               </li>
             </ul></li>
 
+           <li class="nav-header">University Class Routines</li>
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Class Routines
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/allClass') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Classes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/addClass') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Class to Routine</p>
+                </a>
+              </li>
+            </ul></li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

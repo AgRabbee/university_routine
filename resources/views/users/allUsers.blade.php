@@ -23,6 +23,7 @@
                 <th>Email</th>
                 <th>Mobile No</th>
                 <th>Profile Image</th>
+                <th>User Role</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -33,6 +34,13 @@
                     <td>{{ $value->email }}</td>
                     <td>{{ $value->mobile }}</td>
                     <td><img src="{{asset('images/'.$value->profile_image)}}" class="profile_image" alt=""></td>
+                    <td>
+                        @if ($value->user_role == 1)
+                            {{ 'Teacher' }}
+                        @else
+                            {{ 'Student' }}    
+                        @endif
+                    </td>
                     <td>
                         @if($value->status == '0')
                          <div class="d-flex">
@@ -98,6 +106,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Profile Image</th>
+                <th>User Role</th>
                 <th>Action</th>
             </tr>
             </tfoot>
