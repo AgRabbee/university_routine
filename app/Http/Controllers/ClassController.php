@@ -124,5 +124,36 @@ class ClassController extends Controller
             return view('classes_in_routine.addClass')->with($data);
         }
 
-        
+        public function addClass(Request $request)
+        {
+            $this->validate($request,[
+                'subject' => 'required',
+                'date' => 'required',
+                'time_duration' => 'required',
+                'teacher_id' => 'required',
+                'room_no' => 'required|numeric',
+                'status' => 'required',
+            ]);
+
+            $check_routine = Routine::where('subject_id',$request['subject'])
+                            ->where('class_time_id',$request['time_duration'])
+                            ->where('date',$request['date'])
+                            ->count();
+            if ($check_routine > 0) {
+                return redirect()->back()->withErrorMessage('Duplicate Classes cannot be added for same date and time.');
+            }else {
+                $class = new Routine;
+                $class->subject_id = $request['subject'];
+                $class->class_time_id = $request['time_duration'];
+                $class->date = $request['date'];
+                $class->room_no = $request['room_no'];
+                $class->teacher_id = $request['teacher_id'];
+                $class->status = 1;
+                $class->created_by = Auth::user()->id;
+                $class->save();
+
+                return redirect('/allClasses')->withSuccessMessage('Class Time Added Successfully');
+            }
+
+        }
 }
