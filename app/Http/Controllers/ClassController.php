@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\Class_time;
+use App\Routine;
+use App\User;
 use Auth;
 class ClassController extends Controller
 {
@@ -103,4 +105,24 @@ class ClassController extends Controller
 
             return redirect('/allClassTimes')->withSuccessMessage('Class Time Updated Successfully');
         }
+
+
+        // class routine area
+        public function allClass()
+        {
+            $allClasses= Routine::all();
+            return view('classes_in_routine.allClasses')->with('allClasses',$allClasses);
+        }
+
+        public function addClassForm()//display class form for adding new one
+        {
+            $data = array(
+                'subjects' => Subject::all(),
+                'class_times' => Class_time::all(),
+                'teachers' => User::where('user_role','1')->get(),
+            );
+            return view('classes_in_routine.addClass')->with($data);
+        }
+
+        
 }

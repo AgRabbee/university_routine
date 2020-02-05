@@ -17,6 +17,7 @@ class CreateRoutinesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('class_time_id');
+            $table->date('date');
             $table->string('room_no');
             $table->unsignedBigInteger('teacher_id');
             $table->integer('status')->comment('0->inactive; 1->active');

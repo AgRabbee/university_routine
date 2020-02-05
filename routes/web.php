@@ -56,7 +56,7 @@ Route::group(['middleware'=>['auth','employee']],function(){
     Route::post('/edit/classTime/{id}','ClassController@editclassTime');
 
     // class routine preview and updates
-    Route::get('/allClass','ClassController@allClass');
+    Route::get('/allClasses','ClassController@allClass');
     Route::get('/addClass','ClassController@addClassForm');
     Route::post('/addClass','ClassController@addClass');
     Route::get('/edit/class/{id}','ClassController@editclassForm');
