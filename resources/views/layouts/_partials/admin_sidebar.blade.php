@@ -36,6 +36,54 @@
               </li>
             </ul></li>
 
+           <li class="nav-header">University Subjects</li>
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Subjects
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/allSubjects') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Subjects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/addSubject') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Subject</p>
+                </a>
+              </li>
+            </ul></li>
+
+           <li class="nav-header">University Class Times</li>
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-clock"></i>
+              <p>
+                Class Times
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/allClassTimes') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Class Times</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/addClassTime') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Class Time</p>
+                </a>
+              </li>
+            </ul></li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
