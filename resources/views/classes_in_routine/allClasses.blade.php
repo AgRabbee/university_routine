@@ -20,8 +20,8 @@
               <thead>
               <tr>
                   <th>Subject Name</th>
-                  <th>Date</th>
-                  <th>Time Duration</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
                   <th>Teacher Name</th>
                   <th>Room No</th>
                   <th>Created By</th>
@@ -36,8 +36,8 @@
                   @foreach ($allClasses as $allClass)
                       <tr>
                           <td>{{ $allClass->subjects->subject_name }}</td>
-                          <td>{{ $allClass->date }}</td>
-                          <td>{{ $allClass->class_times->time_duration }}</td>
+                          <td>{{ $allClass->start_time }}</td>
+                          <td>{{ $allClass->end_time }}</td>
                           <td>{{ $allClass->teachers->name }}</td>
                           <td>{{ $allClass->room_no }}</td>
                           <td>{{ $allClass->created_user->name }}</td>
@@ -57,15 +57,15 @@
                                   Inactive
                               @endif
                           </td>
-                          <td><a href="{{ url('/edit/classTime/'.$allClass->id) }}" class="btn btn-primary btn-sm" type="button" ><i class="fas fa-edit"></i></a></td>
+                          <td><a href="{{ url('/edit/class/'.$allClass->id) }}" class="btn btn-primary btn-sm" type="button" ><i class="fas fa-edit"></i></a></td>
                       </tr>
                   @endforeach
               </tbody>
               <tfoot>
               <tr>
                   <th>Subject Name</th>
-                  <th>Date</th>
-                  <th>Time Duration</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
                   <th>Teacher Name</th>
                   <th>Room No</th>
                   <th>Created By</th>

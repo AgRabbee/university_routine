@@ -26,7 +26,6 @@ Route::post('/signup','Auth\AuthController@signUp');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 // route group for admin and teachers
 //---------------------------------------
 Route::group(['middleware'=>['auth','employee']],function(){

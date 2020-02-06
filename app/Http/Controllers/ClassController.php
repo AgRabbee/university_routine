@@ -77,7 +77,8 @@ class ClassController extends Controller
         ]);
 
         $class_time = new Class_time;
-        $class_time->time_duration = $request['time_duration'];
+        $class_time->start_time = $request['start_time'];
+        $class_time->end_time = $request['end_time'];
         $class_time->status = 1;
         $class_time->created_by = Auth::user()->id;
         $class_time->save();
@@ -128,24 +129,24 @@ class ClassController extends Controller
         {
             $this->validate($request,[
                 'subject' => 'required',
-                'date' => 'required',
-                'time_duration' => 'required',
+                'start_time' => 'required',
+                'end_time' => 'required',
                 'teacher_id' => 'required',
                 'room_no' => 'required|numeric',
                 'status' => 'required',
             ]);
 
             $check_routine = Routine::where('subject_id',$request['subject'])
-                            ->where('class_time_id',$request['time_duration'])
-                            ->where('date',$request['date'])
+                            ->where('start_time',$request['start_time'])
+                            ->where('end_time',$request['end_time'])
                             ->count();
             if ($check_routine > 0) {
                 return redirect()->back()->withErrorMessage('Duplicate Classes cannot be added for same date and time.');
             }else {
                 $class = new Routine;
                 $class->subject_id = $request['subject'];
-                $class->class_time_id = $request['time_duration'];
-                $class->date = $request['date'];
+                $class->start_time = $request['start_time'];
+                $class->end_time = $request['end_time'];
                 $class->room_no = $request['room_no'];
                 $class->teacher_id = $request['teacher_id'];
                 $class->status = 1;
@@ -154,6 +155,30 @@ class ClassController extends Controller
 
                 return redirect('/allClasses')->withSuccessMessage('Class Time Added Successfully');
             }
+        }
 
+        public function editclassForm($id)
+        {
+            $data = array(
+                'class_details' => Routine::find($id),
+                'teachers' => User::where('user_role','1')->get(),
+            );
+            return view('classes_in_routine.editClass')->with($data);
+
+        }
+
+        public function editclass(Request $request,$id)
+        {
+            $this->validate($request,[
+                'time_duration' => 'required|string',
+                'status'=>'required'
+            ]);
+            $class_time_details = Class_time::find($id);
+            $class_time_details->time_duration = $request['time_duration'];
+            $class_time_details->updated_by = Auth::user()->id;
+            $class_time_details->status = $request['status'];
+            $class_time_details->save();
+
+            return redirect('/allClassTimes')->withSuccessMessage('Class Time Updated Successfully');
         }
 }

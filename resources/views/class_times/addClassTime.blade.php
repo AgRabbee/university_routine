@@ -24,11 +24,23 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="time_duration">Time Duration</label>
+                                <label for="start_time">Start date and time</label>
                                 <div class="form-line">
-                                    <input type="text" class="form-control @error('time_duration') is-invalid @enderror" name="time_duration" value="{{ old('time_duration') }}"  autocomplete="time_duration"  id="time_duration" placeholder="Enter Time duration">
-                                    <small id="time_duration" class="form-text text-muted">example: 8am-10am</small>
-                                    @error('time_duration')
+                                    <input type="datetime-local" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ old('start_time') }}"  autocomplete="start_time"  id="start_time" placeholder="Enter start time">
+                                    @error('start_time')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="end_time">End Time and Date</label>
+                                <div class="form-line">
+                                    <input type="datetime-local" class="form-control @error('end_time') is-invalid @enderror" name="end_time" value="{{ old('end_time') }}"  autocomplete="end_time"  id="end_time" placeholder="Enter start time">
+                                    @error('end_time')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

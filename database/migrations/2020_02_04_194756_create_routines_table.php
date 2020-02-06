@@ -16,8 +16,8 @@ class CreateRoutinesTable extends Migration
         Schema::create('routines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('subject_id');
-            $table->unsignedBigInteger('class_time_id');
-            $table->date('date');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
             $table->string('room_no');
             $table->unsignedBigInteger('teacher_id');
             $table->integer('status')->comment('0->inactive; 1->active');
@@ -27,7 +27,6 @@ class CreateRoutinesTable extends Migration
 
             //foreign keys
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('class_time_id')->references('id')->on('class_times')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

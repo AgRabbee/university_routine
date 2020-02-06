@@ -42,11 +42,10 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="date">Date</label>
+                                <label for="start_time">Start date and time</label>
                                 <div class="form-line">
-                                    <input type="text" class="form-control @error('date') is-invalid @enderror" name="date" id="datepicker">
-
-                                    @error('date')
+                                    <input type="datetime-local" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ old('start_time') }}"  autocomplete="start_time"  id="start_time" placeholder="Enter start time">
+                                    @error('start_time')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -56,15 +55,10 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="time_duration">Class Time</label>
+                                <label for="end_time">End Time and Date</label>
                                 <div class="form-line">
-                                    <select class="form-control @error('time_duration') is-invalid @enderror" name="time_duration">
-                                        <option value="">--Select One--</option>
-                                        @foreach ($class_times as $class_time)
-                                            <option value="{{ $class_time->id }}">{{ $class_time->time_duration }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('time_duration')
+                                    <input type="datetime-local" class="form-control @error('end_time') is-invalid @enderror" name="end_time" value="{{ old('end_time') }}"  autocomplete="end_time"  id="end_time" placeholder="Enter start time">
+                                    @error('end_time')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

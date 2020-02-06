@@ -15,7 +15,8 @@ class CreateClassTimesTable extends Migration
     {
         Schema::create('class_times', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('time_duration')->unique();
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
             $table->integer('status')->comment('0->inactive; 1->active');
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable();
