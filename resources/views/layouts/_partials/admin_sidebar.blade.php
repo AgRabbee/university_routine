@@ -60,7 +60,11 @@
               </li>
             </ul></li>
 
-           <li class="nav-header">University Class Times</li>
+            {{-- // ===================================================
+            // don't require for completing the requirements
+            // =================================================== --}}
+
+           {{-- <li class="nav-header">University Class Times</li>
            <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-clock"></i>
@@ -82,7 +86,11 @@
                   <p>Add Class Time</p>
                 </a>
               </li>
-            </ul></li>
+            </ul></li> --}}
+
+            {{-- // ===================================================
+            // don't require for completing the requirements
+            // =================================================== --}}
 
            <li class="nav-header">University Class Routines</li>
            <li class="nav-item has-treeview">

@@ -59,55 +59,62 @@ class ClassController extends Controller
 
 
     //class times preview and updates
-    public function allClassTimes()
-    {
-        $allClassTimes = Class_time::all();
-        return view('class_times.allClassTimes')->with('allClassTimes',$allClassTimes);
-    }
+    // ===================================================
+    // don't require for completing the requirements
+    // ===================================================
 
-    public function addClassTimeForm()//display class time form for adding new one
-    {
-        return view('class_times.addClassTime');
-    }
+    // public function allClassTimes()
+    // {
+    //     $allClassTimes = Class_time::all();
+    //     return view('class_times.allClassTimes')->with('allClassTimes',$allClassTimes);
+    // }
+    //
+    // public function addClassTimeForm()//display class time form for adding new one
+    // {
+    //     return view('class_times.addClassTime');
+    // }
+    //
+    // public function addClassTime(Request $request)
+    // {
+    //     $this->validate($request,[
+    //         'time_duration' => 'required|string|unique:class_times',
+    //     ]);
+    //
+    //     $class_time = new Class_time;
+    //     $class_time->start_time = $request['start_time'];
+    //     $class_time->end_time = $request['end_time'];
+    //     $class_time->status = 1;
+    //     $class_time->created_by = Auth::user()->id;
+    //     $class_time->save();
+    //
+    //     return redirect('/allClassTimes')->withSuccessMessage('Class Time Added Successfully');
+    // }
+    //
+    //     public function editclassTimeForm($id)
+    //     {
+    //         $class_time_details = Class_time::find($id);
+    //         return view('class_times.editClassTime')->with('class_time_details',$class_time_details);
+    //     }
+    //
+    //     public function editclassTime(Request $request,$id)
+    //     {
+    //         $this->validate($request,[
+    //             'time_duration' => 'required|string',
+    //             'status'=>'required'
+    //         ]);
+    //         $class_time_details = Class_time::find($id);
+    //         $class_time_details->time_duration = $request['time_duration'];
+    //         $class_time_details->updated_by = Auth::user()->id;
+    //         $class_time_details->status = $request['status'];
+    //         $class_time_details->save();
+    //
+    //         return redirect('/allClassTimes')->withSuccessMessage('Class Time Updated Successfully');
+    //     }
 
-    public function addClassTime(Request $request)
-    {
-        $this->validate($request,[
-            'time_duration' => 'required|string|unique:class_times',
-        ]);
-
-        $class_time = new Class_time;
-        $class_time->start_time = $request['start_time'];
-        $class_time->end_time = $request['end_time'];
-        $class_time->status = 1;
-        $class_time->created_by = Auth::user()->id;
-        $class_time->save();
-
-        return redirect('/allClassTimes')->withSuccessMessage('Class Time Added Successfully');
-    }
-
-        public function editclassTimeForm($id)
-        {
-            $class_time_details = Class_time::find($id);
-            return view('class_times.editClassTime')->with('class_time_details',$class_time_details);
-        }
-
-        public function editclassTime(Request $request,$id)
-        {
-            $this->validate($request,[
-                'time_duration' => 'required|string',
-                'status'=>'required'
-            ]);
-            $class_time_details = Class_time::find($id);
-            $class_time_details->time_duration = $request['time_duration'];
-            $class_time_details->updated_by = Auth::user()->id;
-            $class_time_details->status = $request['status'];
-            $class_time_details->save();
-
-            return redirect('/allClassTimes')->withSuccessMessage('Class Time Updated Successfully');
-        }
-
-
+    // ===================================================
+    // don't require for completing the requirements
+    // ===================================================
+    
         // class routine area
         public function allClass()
         {
@@ -170,15 +177,21 @@ class ClassController extends Controller
         public function editclass(Request $request,$id)
         {
             $this->validate($request,[
-                'time_duration' => 'required|string',
+                'start_time' => 'required',
+                'end_time' => 'required',
+                'teacher_id' => 'required',
+                'room_no' => 'required',
                 'status'=>'required'
             ]);
-            $class_time_details = Class_time::find($id);
-            $class_time_details->time_duration = $request['time_duration'];
-            $class_time_details->updated_by = Auth::user()->id;
-            $class_time_details->status = $request['status'];
-            $class_time_details->save();
+            $class_details = Routine::find($id);
+            $class_details->start_time = $request['start_time'];
+            $class_details->end_time = $request['end_time'];
+            $class_details->teacher_id = $request['teacher_id'];
+            $class_details->room_no = $request['room_no'];
+            $class_details->updated_by = Auth::user()->id;
+            $class_details->status = $request['status'];
+            $class_details->save();
 
-            return redirect('/allClassTimes')->withSuccessMessage('Class Time Updated Successfully');
+            return redirect('/allClasses')->withSuccessMessage('Class Updated Successfully');
         }
 }

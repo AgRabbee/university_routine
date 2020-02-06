@@ -18,7 +18,7 @@
             <!-- /.card-header -->
 
             <!-- form start -->
-            <form role="form" action="{{ url('/edit/classTime/'.$class_details['id']) }}" method="post">
+            <form role="form" action="{{ url('/edit/class/'.$class_details['id']) }}" method="post">
                 @csrf
                 <div class="card-body">
 
@@ -27,7 +27,7 @@
                                 <div class="form-group">
                                     <label for="start_time">Start date and time</label>
                                     <div class="form-line">
-                                        <input type="datetime-local" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ $class_details['start_time'] }}"  autocomplete="start_time"  id="start_time" placeholder="Enter start time">
+                                        <input type="datetime-local" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ date('Y-m-d\TH:i:s', strtotime($class_details['start_time'])) }}"  autocomplete="start_time"  id="start_time" placeholder="Enter start time">
                                         @error('start_time')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
                                 <div class="form-group">
                                     <label for="end_time">End Time and Date</label>
                                     <div class="form-line">
-                                        <input type="datetime-local" class="form-control @error('end_time') is-invalid @enderror" name="end_time" value="{{ $class_details['end_time'] }}"   autocomplete="end_time"  id="end_time" placeholder="Enter start time">
+                                        <input type="datetime-local" class="form-control @error('end_time') is-invalid @enderror" name="end_time" value="{{ date('Y-m-d\TH:i:s', strtotime($class_details['end_time'])) }}"   autocomplete="end_time"  id="end_time" placeholder="Enter start time">
                                         @error('end_time')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

@@ -47,12 +47,21 @@ Route::group(['middleware'=>['auth','employee']],function(){
     Route::get('/edit/subject/{id}','ClassController@editSubjectForm');
     Route::post('/edit/subject/{id}','ClassController@editSubject');
 
+    // ===================================================
+    // don't require for completing the requirements
+    // ===================================================
+
+
     // class times preview and updates
-    Route::get('/allClassTimes','ClassController@allClassTimes');
-    Route::get('/addClassTime','ClassController@addClassTimeForm');
-    Route::post('/addClassTime','ClassController@addClassTime');
-    Route::get('/edit/classTime/{id}','ClassController@editclassTimeForm');
-    Route::post('/edit/classTime/{id}','ClassController@editclassTime');
+    // Route::get('/allClassTimes','ClassController@allClassTimes');
+    // Route::get('/addClassTime','ClassController@addClassTimeForm');
+    // Route::post('/addClassTime','ClassController@addClassTime');
+    // Route::get('/edit/classTime/{id}','ClassController@editclassTimeForm');
+    // Route::post('/edit/classTime/{id}','ClassController@editclassTime');
+
+    // ===================================================
+    // don't require for completing the requirements
+    // ===================================================
 
     // class routine preview and updates
     Route::get('/allClasses','ClassController@allClass');

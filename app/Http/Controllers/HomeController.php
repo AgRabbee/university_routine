@@ -19,7 +19,7 @@ class HomeController extends Controller
         if (Auth::user()->user_role == 0) { // admin will redirect to admin dashboard
             return view('layouts.admin');
         }elseif (Auth::user()->user_role == 2 ) { //student will redirect to student dashboard
-            $calendar_details = Routine::all();
+            $calendar_details = Routine::where('status','1')->get();
             return view('home')->with('calendar_details',$calendar_details);
         }
     }
