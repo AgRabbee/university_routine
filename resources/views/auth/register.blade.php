@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }} <span style="color:orange">*</span></label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }} <span style="color:red">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} <span style="color:orange">*</span></label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} <span style="color:red">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }} <span style="color:orange">*</span></label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }} <span style="color:red">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="user_role" class="col-md-4 col-form-label text-md-right">{{ __('User Role') }} <span style="color:orange">*</span></label>
+                            <label for="user_role" class="col-md-4 col-form-label text-md-right">{{ __('User Role') }} <span style="color:red">*</span></label>
 
                             <div class="col-md-6">
                                 <select class="form-control @error('user_role') is-invalid @enderror" name="user_role">
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Mobile No') }} <span style="color:orange">*</span></label>
+                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Mobile No') }} <span style="color:red">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}"  autocomplete="mobile" autofocus>
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">{{ __('Profile Image') }} <span style="color:orange">*</span></label>
+                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">{{ __('Profile Image') }} <span style="color:red">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="profile_image" type="file" class="form-control @error('profile_image') is-invalid @enderror" name="profile_image" value="{{ old('profile_image') }}"  autocomplete="profile_image" autofocus>

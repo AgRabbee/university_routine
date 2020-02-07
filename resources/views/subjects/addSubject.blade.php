@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="subject_name">Subject Name</label>
+                                <label for="subject_name">Subject Name</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <input type="text" class="form-control @error('subject_name') is-invalid @enderror" name="subject_name" value="{{ old('subject_name') }}"  autocomplete="subject_name"  id="subject_name" placeholder="Enter subject name">
 

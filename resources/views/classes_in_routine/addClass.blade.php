@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="subject">Subject Name</label>
+                                <label for="subject">Subject Name</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <select class="form-control @error('subject') is-invalid @enderror" name="subject">
                                         <option value="">--Select One--</option>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="start_time">Start date and time</label>
+                                <label for="start_time">Start date and time</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <input type="datetime-local" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ old('start_time') }}"  autocomplete="start_time"  id="start_time" placeholder="Enter start time">
                                     @error('start_time')
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="end_time">End Time and Date</label>
+                                <label for="end_time">End Time and Date</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <input type="datetime-local" class="form-control @error('end_time') is-invalid @enderror" name="end_time" value="{{ old('end_time') }}"  autocomplete="end_time"  id="end_time" placeholder="Enter start time">
                                     @error('end_time')
@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="teacher_id">Teacher Name</label>
+                                <label for="teacher_id">Teacher Name</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <select class="form-control @error('teacher_id') is-invalid @enderror" name="teacher_id">
                                         <option value="">--Select One--</option>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="room_no">Room No</label>
+                                <label for="room_no">Room No</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <input type="text" class="form-control @error('room_no') is-invalid @enderror" name="room_no" value="{{ old('room_no')}}" placeholder="Enter Room No">
                                     <small id="room_no" class="form-text text-muted">example: 102,103</small>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="status">Status</label>
+                                <label for="status">Status</label> <span style="color:red">*</span></label>
                                 <div class="form-line">
                                     <select class="form-control @error('status') is-invalid @enderror" name="status">
                                         <option value="">--Select One--</option>

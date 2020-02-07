@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="subject_name">Subject Name</label>
+                                    <label for="subject_name">Subject Name</label> <span style="color:red">*</span></label>
                                     <input type="text" class="form-control @error('subject_name') is-invalid @enderror" name="subject_name" value="{{ $subjectDetails['subject_name'] }}">
                                     @error('subject_name')
                                         <span class="invalid-feedback" role="alert">
