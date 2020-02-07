@@ -17,24 +17,26 @@
                  <p>Dashboard</p>
                </a>
            </li>
-
-           <li class="nav-header">System Users</li>
-           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Users
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('/allUsers') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Users</p>
+           @if (Auth::user()->user_role == 0) // only system admin can view all users on the system
+               <li class="nav-header">System Users</li>
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Users
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
-              </li>
-            </ul></li>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('/allUsers') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>All Users</p>
+                    </a>
+                  </li>
+                </ul></li>
+           @endif
+
 
            <li class="nav-header">University Subjects</li>
            <li class="nav-item has-treeview">

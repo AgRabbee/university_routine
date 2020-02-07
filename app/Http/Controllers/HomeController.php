@@ -16,7 +16,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        if (Auth::user()->user_role == 0) { // admin will redirect to admin dashboard
+        if (Auth::user()->user_role == 0 || Auth::user()->user_role == 1) { // admin and teacher will redirect to admin dashboard
             return view('layouts.admin');
         }elseif (Auth::user()->user_role == 2 ) { //student will redirect to student dashboard
             $calendar_details = Routine::where('status','1')->get();
